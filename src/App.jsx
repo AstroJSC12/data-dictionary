@@ -150,7 +150,7 @@ export default function App() {
                     }`}
                   >
                     <span className="mr-2 text-lg">
-                      {openCategories[cat] ? 'v' : '>'}
+                      {openCategories[cat] ? '▼' : '▶'}
                     </span>
                     <span className="text-lg font-semibold">{cat}</span>
                   </div>
