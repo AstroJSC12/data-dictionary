@@ -1,0 +1,17 @@
+[
+  {
+    "category": "Calls",
+    "term": "IVR time",
+    "definition": "Time a caller spent on an IVR menu."
+  },
+  {
+    "category": "Calls",
+    "term": "Speed to answer",
+    "definition": "Time until an agent picks up the call."
+  },
+  {
+    "category": "Tickets",
+    "term": "Priority",
+    "definition": "Urgency level of a support ticket."
+  }
+]
