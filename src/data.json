@@ -1,17 +1,581 @@
 [
   {
-    "category": "Calls",
-    "term": "IVR time",
-    "definition": "Time a caller spent on an IVR menu."
+    "category": "Answers Module",
+    "term": "User Queries",
+    "definition": "Count of questions asked by the users.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Answered",
+    "definition": "Count of user queries where the bot was able to provide an answer.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Unanswered",
+    "definition": "Count of user queries where the fallback action was triggered and the bot could not come up with a response.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Agent Handover Rate",
+    "definition": "XXXXX.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Resolution Rate",
+    "definition": "XXXXX.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Open Conversations",
+    "definition": "XXXXX.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Bot Answers",
+    "definition": "XXXXX.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Utterance Initiated At",
+    "definition": "XXXXX.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Response Language",
+    "definition": "The language in which the bot provided a response to the customer.",
+    "tags": ["Filter", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "User Query ID",
+    "definition": "Unique ID associated with each user message.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Conversation ID",
+    "definition": "Unique id for a bot conversation.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "User Query Text",
+    "definition": "The content of the message sent by the user.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Bot",
+    "definition": "Name of the bot on which conversations were initiated.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Bot Version",
+    "definition": "The version of the bot on which the conversation were initiated.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Feedback",
+    "definition": "Feedback provided by the user on a Q&A response.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Unique Response ID",
+    "definition": "Unique ID associated with every response provided by the bot.",
+    "tags": ["Tabular"]
+  },
+  {
+    "category": "Answers Module",
+    "term": "Bot Variables",
+    "definition": "Provides a list of all the bot variables stored on bots and the ability to filter/aggregate on any of those variables.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Message",
+    "definition": "Count of messages sent in an interaction.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "User Query Text",
+    "definition": "The content of the message sent by the user.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Conversation ID",
+    "definition": "Unique ID for a bot conversation.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Created Date",
+    "definition": "Time of message creation.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Message Input Type",
+    "definition": "Timestamp when the message was sent.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Message Text",
+    "definition": "The content of the message that was sent during the bot conversation.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Bot Version",
+    "definition": "The content of the message that was sent during the bot conversation.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Status",
+    "definition": "The current status of the bot conversation (Open, Closed).",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Feedback Star Rating",
+    "definition": "Star rating value of the Feedback provided by the user .",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Messages Module",
+    "term": "Bot Name",
+    "definition": "Name of he bot on which the conversation was initiated.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Agent Handover Rate",
+    "definition": "The count/percentage of conversations handed over to the agent by the bot.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Messages",
+    "definition": "Count of messages sent in an interaction.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "User Messages",
+    "definition": "The number of messages users send before a conversation is abandoned or resolved.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Bot Messages",
+    "definition": "The number of messages sent by the bot before a conversation is abandoned or resolved..",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Customer",
+    "definition": "A unique identifier for the user that interacts with the bot.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Conversation ID",
+    "definition": "Unique ID for a bot conversation.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Created Date",
+    "definition": "Timestamp at which the bot conversation was initiated.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Status",
+    "definition": "Current status of the conversation. For example, New, open, unassigned, assigned, resolved, deleted, Any (includes all interactions).",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Bot",
+    "definition": "Name of the bot on which conversations were initiated.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module",
+    "term": "Bot Version",
+    "definition": "The version of the bot on which the conversation was initiated.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "API Response",
+    "term": "API Response",
+    "definition": "Count of API calls made through bot conversations.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "API Response",
+    "term": "Time Taken",
+    "definition": "Time taken to get a response after an API call is made.",
+    "tags": ["Metric", "Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "Conversation ID",
+    "definition": "Unique ID corresponding to each bot conversation.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "Response Date",
+    "definition": "Timestamp at which the response of the API call was received.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "Customer",
+    "definition": "A unique identifier for the user that interacts with the bot.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "API Name",
+    "definition": "Name of the API configured in the API library section of the bot.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "API Triggered At",
+    "definition": "Timestamp at which the API call was made.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "Bot",
+    "definition": "Name of the bot on which an API was initiated.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "API Response",
+    "term": "Bot Version",
+    "definition": "Version number of the bot on which an API was initiated.",
+    "tags": ["Filter", "Group By", "Tabular"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Feedback",
+    "definition": "Provides the count of feedback provided across bot conversations.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Survey Rating Results",
+    "definition": "Rating provided by users on a Star rating scale.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Survey Yes Or No Results",
+    "definition": "Yes or No rating provided by the users on a bot conversation.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Message ID",
+    "definition": "Unique message ID where the feedback was provided by the user.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Feedback Type",
+    "definition": "Opinion poll/star rating .",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Customer",
+    "definition": "Unique identifier for a customer.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Star Rating Provided",
+    "definition": "Flag to identify if a star rating was provided by the user on a conversation.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Question",
+    "definition": "The question on which the feedback was provided by the user.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Survey Responded Date",
+    "definition": "Timestamp at which the feedback was provided by the user.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Bot",
+    "definition": "Name of the bot on which conversations were initiated.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Bot Version",
+    "definition": "The version number of the bot on which the conversation was initiated.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Feedback Module",
+    "term": "Conversation ID",
+    "definition": "Unique id corresponding to a conversation with a bot.",
+    "tags": ["Filter", "Group By"]
+  },
+  {
+    "category": "Sessions",
+    "term": "Customer",
+    "definition": "Unique identifier for a customer.",
+    "tags": ["Filter", "Group By"]
   },
   {
     "category": "Calls",
-    "term": "Speed to answer",
-    "definition": "Time until an agent picks up the call."
+    "term": "IVR time",
+    "definition": "Time a caller spent on an IVR menu.",
+    "tags": ["Tabular", "Metric"]
   },
   {
     "category": "Tickets",
     "term": "Priority",
-    "definition": "Urgency level of a support ticket."
+    "definition": "Urgency level of a support ticket.",
+    "tags": ["Filterable"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Conversation",
+    "definition": "A new or reopened conversation thread (after resolution) in a channel.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Response Time (Bhrs)",
+    "definition": [
+        "Time taken after agent assignment to send the first response, considering the business hours. If no agent is assigned and the first response has been provided, the first response time will be calculated based on:",
+        "1. The time the conversation was initiated or,",
+        "2. The time the conversation was handed over by the bot."],
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Group Assignment Time (Chrs)",
+    "definition": "Time taken post-initiation to assign the conversation to a group.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Group Assignment Time (Bhrs)",
+    "definition": "Time taken post-initiation to assign the conversation to a group (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Resolution Time",
+    "definition": "The time from the first agent assignment to resolution. If the agent responded before assignment or if there's no agent assignment, it's the time from conversation creation or bot handover to resolution.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Agent Assignment Time (Chrs)",
+    "definition": "Time taken post-initiation to assign the conversation to an agent.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Agent Assignment Time (Bhrs)",
+    "definition": "Time taken post-initiation, to assign the conversation to an agent (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Interaction Time",
+    "definition": "The time from the first agent assignment to the last agent response. If the agent responded before assignment or if there's no agent assignment, it's the time from conversation creation or bot handover to the last agent response.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Wait Time (Bhrs)",
+    "definition": "Time taken to get first response from the time conversation was initiated (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Wait Time (Chrs)",
+    "definition": "Time taken to get the first response from the time the conversation was initiated, regardless of the business hours.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "CSAT Score",
+    "definition": "No. of stars selected by user on CSAT survey.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Responses",
+    "definition": "Count of agent messages across conversations.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "User Messages",
+    "definition": "Count of user messages across conversations.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "CSAT Responded At",
+    "definition": "Count of conversations where a CSAT was provided.",
+    "tags": ["Metric"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Reassignment Time (Bhrs)",
+    "definition": "Time taken to re-assign a chat to another agent after the first assignment (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Reassignment Time (Chrs)",
+    "definition": "Time taken to re-assign a chat to another agent after the first assignment, regardless of the business hours (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Group Reassignment Time (Bhrs)",
+    "definition": "Time taken to re-assign a chat to another group after the first assignment (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Group Reassignment Time (Chrs)",
+    "definition": "Time taken to re-assign a chat to another group after the first assignment, regardless of the business hours (only including business hours in time calculation).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Group Assigned At",
+    "definition": "The time at which a group was assigned to a conversation.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Reopen Type",
+    "definition": "Reason for a conversation getting reopened - New, Customer Reopen, Agent Reopen, DSAT Reopen.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Member Assigned At",
+    "definition": "Timestamp when interaction was assigned to an agent anytime (new or reopened).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Member Assigned",
+    "definition": "Timestamp when an interaction was first assigned to an agent (new or reopened).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Initiated At",
+    "definition": "Timestamp when interaction was created (new or reopened).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Status",
+    "definition": "Current status of the conversation: Unassigned, Assigned, Resolved, Deleted, Any (includes all interactions).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Resolved At",
+    "definition": "Timestamp when interaction was resolved (new or reopened).",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Within Business Hours",
+    "definition": "Whether the interaction was initiated within business hours. True or False.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Source",
+    "definition": "Platform from where the conversation was initiated: MOBILE, WEBCHAT, FACEBOOK_MESSENGER, WHATSAPP, FB_NATIVE, ABC, LINE.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Issue Resolved",
+    "definition": "Yes or No response to CSAT question.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Group Name",
+    "definition": "Chat group to which the interaction is assigned.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Label Category",
+    "definition": "Label category applied to an interaction post-resolution.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Label Subcategory",
+    "definition": "Label subcategory applied to an interaction post-resolution.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Email",
+    "definition": "Email ID of the agent profile.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Timezone",
+    "definition": "Timezone in which the agent's profile has been set up.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Name",
+    "definition": "Name of the agent.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "-- END",
+    "term": "Conversation",
+    "definition": "A new or reopened conversation thread (after resolution) in a channel.",
+    "tags": ["Metric"]
   }
 ]
