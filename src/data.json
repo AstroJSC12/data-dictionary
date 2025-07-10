@@ -573,6 +573,60 @@
     "tags": ["Metric", "Filter", "Group By"]
   },
   {
+    "category": "Conversations Module [FC]",
+    "term": "Interaction ID",
+    "definition": "Unique identifier for every interaction on chat.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "SLA Policy ID",
+    "definition": "Unique identifier for an sla policy.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Agent Responses",
+    "definition": "Count of agent responses on an interaction.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "SLA Compliance Rate",
+    "definition": "Count of interactions that adhered to the SLA policy.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "First Response SLA Breach",
+    "definition": "Provides the count of interactions where SLA breached due first response not going within the specified time.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Next Response SLA",
+    "definition": "Provides the count of interactions where SLA breached due next response not going within the specified time.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Issue Reopened",
+    "definition": "Yes or No response to CSAT question.",
+    "tags": ["Metric", "Filter", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Response Due Type",
+    "definition": "Identifier to understand if a conversation has first response due or response due.",
+    "tags": ["Metric", "FiltResponse Due Typeer", "Group By"]
+  },
+  {
+    "category": "Conversations Module [FC]",
+    "term": "Initiated At",
+    "definition": "The timestamp at which an interaction was initiated.",
+    "tags": ["Metric", "FiltResponse Due Typeer", "Group By"]
+  },
+  {
     "category": "-- END",
     "term": "Conversation",
     "definition": "A new or reopened conversation thread (after resolution) in a channel.",

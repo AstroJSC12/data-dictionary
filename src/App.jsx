@@ -7,6 +7,15 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [focusedIndex, setFocusedIndex] = useState(-1)
   const [openCategories, setOpenCategories] = useState({})
+  const trimmedTerm = searchTerm.trim();
+
+  // ⬇️ NEW — reusable reset helper
+  const clearSearch = () => {
+    setSearchTerm('');          // blank the input
+    setOpenCategories({});      // collapse all categories
+    setFocusedIndex(-1);        // reset arrow-key focus
+    setSelected(null);          // (optional) clear detail pane
+  };
 
   // ▶️ Refs
   const searchInputRef = useRef(null)
@@ -16,31 +25,59 @@ export default function App() {
   // ▶️ Shortcut to focus search ('/' or Ctrl+K)
   useEffect(() => {
     const onGlobalKey = e => {
+      // '/' or Ctrl+K → focus search
       if (e.key === '/' || (e.ctrlKey && e.key.toLowerCase() === 'k')) {
-        e.preventDefault()
-        searchInputRef.current?.focus()
+        e.preventDefault();
+        searchInputRef.current?.focus();
       }
+      // Esc (from anywhere) → clear & collapse
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        clearSearch();
+        searchInputRef.current?.focus();  // ← keep focus right in the box
+      }
+    };
+    window.addEventListener('keydown', onGlobalKey);
+    return () => window.removeEventListener('keydown', onGlobalKey);
+  }, []);
+
+  // ▶️ When the user completely clears the search box, collapse everything
+  useEffect(() => {
+    if (searchTerm === '') {
+      setOpenCategories({})           // close all categories
+      setFocusedIndex(-1)             // reset focus
     }
-    window.addEventListener('keydown', onGlobalKey)
-    return () => window.removeEventListener('keydown', onGlobalKey)
-  }, [])
+  }, [searchTerm])
 
   // ▶️ Filter data by search
-  const filteredData = data.filter(item =>
-    item.term.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-  const categories = Array.from(new Set(filteredData.map(i => i.category)))
+  const filteredData = trimmedTerm === ''
+    ? []                                 // ⭐ nothing to show when box is empty
+    : data.filter(item =>
+        item.term.toLowerCase().includes(trimmedTerm.toLowerCase())
+      );
+
+  // 🔍 DEBUG: log every time searchTerm or results change
+  useEffect(() => {
+    console.log('🔍 searchTerm:', JSON.stringify(searchTerm));
+    console.log('🔍 trimmedTerm:', JSON.stringify(trimmedTerm));
+    console.log('🔍 filteredData.length:', filteredData.length);
+  }, [searchTerm, trimmedTerm, filteredData]);
+
+  // ▶️ Categories are always based on the **full** dataset
+  const categories = Array.from(           // ⭐ moved outside the filter
+    new Set(data.map(i => i.category))
+  );
 
   // ▶️ Build a flat list of focusable elements
   elementRefs.current = []
   const visibleElements = []
-  if (searchTerm) {
+  if (filteredData.length) {               // ⭐ look at the real list size
     filteredData.forEach(item => visibleElements.push({ type: 'item', item }))
   } else {
     categories.forEach(cat => {
       visibleElements.push({ type: 'category', category: cat })
       if (openCategories[cat]) {
-        filteredData
+        data
           .filter(i => i.category === cat)
           .forEach(item => visibleElements.push({ type: 'item', item }))
       }
@@ -64,7 +101,12 @@ export default function App() {
 
     const el = visibleElements[focusedIndex]
     if (e.key === 'ArrowRight' && el?.type === 'category' && !openCategories[el.category]) {
-      setOpenCategories(prev => ({ ...prev, [el.category]: true }))
+      e.preventDefault();
+      // 1) expand
+      setOpenCategories(prev => ({ ...prev, [el.category]: true }));
+      // 2) immediately move focus into that first child
+      etFocusedIndex(focusedIndex + 1);
+      return;   // stop here so we don’t also run the ArrowDown logic
     }
     if (e.key === 'ArrowLeft' && el?.type === 'category' && openCategories[el.category]) {
       setOpenCategories(prev => ({ ...prev, [el.category]: false }))
@@ -77,6 +119,23 @@ export default function App() {
       }
     }
   }
+
+   // ▶️ Esc inside the search box → clear search & refocus sidebar
+  const onSearchKeyDown = e => {
+    if (e.key === 'Escape') {
+      setSearchTerm('');       // empty the box
+      setOpenCategories({});   // collapse everything
+      setFocusedIndex(-1);     // reset keyboard focus
+      searchInputRef.current?.focus();   // ← put the cursor right back here
+    }
+    // ⭐ Tab → jump focus into the list
+    if (e.key === 'Tab' && !e.shiftKey) {
+      e.preventDefault();
+      // focus aside, then move into its first element
+      asideRef.current?.focus();
+      setFocusedIndex(0);
+      }
+  };
 
   return (
     <div className="flex h-screen bg-blue-100">
@@ -91,15 +150,16 @@ export default function App() {
         <div className="p-4">
           <input
             ref={searchInputRef}
-            type="text"
-            placeholder="Search terms…"
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            className="w-full p-2 border rounded"
-          />
+          type="text"
+          placeholder="Search terms…"
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+          onKeyDown={onSearchKeyDown}
+          className="w-full p-2 border rounded"
+        />
         </div>
 
-        {searchTerm ? (
+        { trimmedTerm !== '' ? (
           <div className="p-4">
             {visibleElements.length > 0 ? (
               visibleElements.map((el, idx) => {
@@ -107,7 +167,7 @@ export default function App() {
                 if (el.type !== 'item') return null
                 return (
                   <div
-                    key={el.item.term}
+                    key={idx}
                     ref={node => (elementRefs.current[idx] = node)}
                     tabIndex={focusedIndex === idx ? 0 : -1}
                     onFocus={() => setFocusedIndex(idx)}
@@ -156,7 +216,7 @@ export default function App() {
                   </div>
                   {openCategories[cat] && (
                     <div className="px-6">
-                      {filteredData
+                      {data                             // ← use the full dataset here
                         .filter(i => i.category === cat)
                         .map(item => {
                           const ti = visibleElements.findIndex(
