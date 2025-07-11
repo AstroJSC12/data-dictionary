@@ -1,6 +1,6 @@
 [
   {
-    "group": "Bot Analytics - Freshchat",
+    "group": "Freshchat: Bot Analytics",
     "categories": [
       {
         "name": "Answers Module",
@@ -541,8 +541,48 @@
             "tags": ["Metric","Filter","Group By"]
           },
           {
+            "term": "Bot Version",
+            "definition": "Bot version corresponding to each bot in the bot builder UI.",
+            "tags": ["Filter","Group By"]
+          },
+          {
+            "term": "Channel",
+            "definition": "Channel on which a conversation was triggered, one session can have conversations spanning across multiple channels .",
+            "tags": ["Filter","Group By"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "Unique ID corresponding to a conversation with a bot.",
+            "tags": ["Filter","Group By"]
+          },
+          {
             "term": "Customer",
             "definition": "Unique identifier for a customer.",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Session Start Time",
+            "definition": "The timestamp at which the session was initiated (Timezone : UTC).",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversation Created At",
+            "definition": "The timestamp at which the conversation was initiated (Timezone : UTC ).",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversation Updated",
+            "definition": "The timestamp at which the conversation was last updated (Timezone : UTC).",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Session ID",
+            "definition": "The unique id corresponding to every session consumed by an account.",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot Variables",
+            "definition": "Provides a list of all the bot variables stored on bots and the ability to filter/aggregate on any of those variables.",
             "tags": ["Filter", "Group By"]
           }
         ]
@@ -566,11 +606,171 @@
             "tags": ["Filterable"]
           }
         ]
+      },
+      {
+        "name": "Bot Variables",
+        "items": [
+          {
+            "term": "cstmr::nm",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "current_dayonly",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "timeonly",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "dayonly",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "cstmr::eml",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "cstmr::phn",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "cstmr::lng",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "firstName",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "sn::cstmr::id",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "externalId",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Mailbox-Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "ul",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Subject",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Description",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Cancel_reason",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Cancel_comment",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Survey_Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Mail-Center-Var",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Mailbox-Var",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Plan-Start-Date-Var",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Mailbox-Plan-Var",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Topic",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "sn::auth::id",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Topic_French",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "email_id",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Extended_bizhours",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Extended_bizhours_end",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Extended_bizhours_beg",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "current_timestamp",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "current_timestamp2",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "current_timeonly2",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
       }
     ]
   },
   {
-    "group": "Chat Analytics - Freshchat",
+    "group": "Freshchat: Chat Analytics",
     "categories": [
       {
         "name": "Conversations Module",
@@ -792,12 +992,112 @@
           {
             "term": "Response Due Type",
             "definition": "Identifier to understand if a conversation has first response due or response due.",
-            "tags": ["Metric", "FiltResponse Due Typeer", "Group By"]
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Initiated At",
             "definition": "The timestamp at which an interaction was initiated.",
-            "tags": ["Metric", "FiltResponse Due Typeer", "Group By"]
+            "tags": ["Metric", "Filter", "Group By"]
+          },
+          {
+            "term": "Offline Conversation",
+            "definition": "Flag to identify if an interaction was triggered during offline hours.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Channel",
+            "definition": "The channel on which the conversation was initiated.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "CSAT Received By",
+            "definition": "The name of the agent who was assigned to the interaction when CSAT was provided.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Channel Topic",
+            "definition": "The channel topic on which the conversation was initiated.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Response By",
+            "definition": "Name of the agent who provided the first response.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Response Assigned Group",
+            "definition": "The group assigned to the conversation at the time the agent provided the first response..",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "First Response At",
+            "definition": "The timestamp at which the agent sent the first response .",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Policy Name",
+            "definition": "The name of the SLA policy applied to the conversation.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Policy Type",
+            "definition": "The policy type applied to a conversation - First response, every response.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Breached At",
+            "definition": "Time at which SLA was breached for an interaction.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation Status",
+            "definition": "Current conversation status of the interaction - Open, Waiting on the customer, waiting on internal team, Resolved.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Assignment Status",
+            "definition": "Current assignment status of an interaction- Assigned or unassigned.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Actor Type",
+            "definition": "Indicates whether the resolution was handled by an agent, through automation, or by a bot.",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Type",
+            "definition": "Classification of an interaction into one of the options configured on the Type conversation property.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Actor Subtype",
+            "definition": "Offers a detailed breakdown of the resolution actor type, specifying the category of automated resolution.",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Priority ID",
+            "definition": "Unique ID corresponding to each priority status.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation Property",
+            "definition": "Priority assigned to a conversation - High, low, medium.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Survey Name",
+            "definition": "The name of the survey, as configured on the survey builder, that was sent to the user.",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Assigned agent during resolution",
+            "definition": "Name of the agent who was assigned to the conversation when the conversation got resolved.",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Resolution action performed by",
+            "definition": "Name of the agent who performed the resolution action.",
+            "tags": ["Filter", "Group By"]
           }
         ]
       },
@@ -934,7 +1234,762 @@
     ]
   },
   {
-    "group": "Bot Analytics - Freshdesk",
+    "group": "Freshchat: Custom Metrics",
+    "categories": [
+      {
+        "name": "Chat Conversations",
+        "items": [
+          {
+            "term": "Interaction Alias",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Agent Response Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Group Response Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Reopen Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Response Due Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Agent Assignment Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "User ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Interaction Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Wait Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Group Assignment Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Alias",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Interaction ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Wait Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Responses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "CSAT Triggered",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "User Messages",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "CSAT Score",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Reassignment Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Reassignment Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Reassignment Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Reassignment Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Assigned Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Assigned Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Timezone",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Label Category",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Label Subcategory",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "CSAT Received By",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Channel Topic",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Response Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Response Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response By",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response Assigned Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "SLA Policy ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "SLA Policy Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "SLA Policy Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "SLA Compliance Rate",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response SLA Breach",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Next Response SLA Breach",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Assignment Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Actor Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Actor Sub Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Priority ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Priority",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Survey Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Bot Conversation Flag",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Priority",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Waiting on Customer Duration",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Waiting on Internal Team Duration",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Action Performed",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Assignet Agent During Resolution",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "AMB Intent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "AMB Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "AMB Device Capabilities",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Due Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution SLA Breach",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "SLA Compliance Rate - Response and Resolution Filter",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          } 
+        ]
+      },
+      {
+        "name": "Chat Messages",
+        "items": [
+          {
+            "term": "Conversation Alias",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Interaction ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Response Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Message ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Response time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Message Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Sent By",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "SLA Breach Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Quality Score - Chat",
+        "items": [
+          {
+            "term": "Grammar of Response",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Sentiment on Resolution",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Timeliness of Response",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Use of Abusive or Filler Words",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Relevancy of Response",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Greeting and Closure",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Overall Quality Score",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feedback",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feedback Comment",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Day Pass",
+        "items": [
+          {
+            "term": "Unique Agent ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Freddy Conversations",
+        "items": [
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Beginning Sentiment Numeric",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Sentiment on Resolution Num",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Actor Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Label Sub-Category",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Label Category",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Source",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Channel Topic",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Responder Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Attributed To",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Initial User Sentiment",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Sentiment on Resolution",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Alias",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Freddy Copilot",
+        "items": [
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversations",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agents",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Unique Identifier",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Action Performed By - Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feature Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Event Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Unique Request ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggestions Provided",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agents Using Suggestion Based Features",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversations Influenced by Suggestion Based Features",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agents Using Quick Access Features",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversations Influenced by Quick Access Features",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggestions and Usage Flags",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Freddy Suggestions - Conversations",
+        "items": [
+          {
+            "term": "Suggestions Provided by Freddy",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggestions Accepted by Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggestions Rejected by Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggestions Ignored by Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feature Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggestion Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Message Level Suggestion ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agents",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversations",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Handling Time - Conversations",
+        "items": [
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Active Handling Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Assigned Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Freshdesk: Bot Analytics",
     "categories": [
       {
         "name": "Chat Conversations",
@@ -970,6 +2025,11 @@
             "tags": ["Metric","Filter"]
           },
           {
+            "term": "Interaction Time",
+            "definition": "TBD",
+            "tags": ["Metric","Filter"]
+          },
+          {
             "term": "Wait Time (Bhrs)",
             "definition": "Total time a customer waits for a message from an agent (or bot?) during Business Hours.",
             "tags": ["Metric","Filter"]
@@ -995,54 +2055,1934 @@
             "tags": ["Metric","Filter"]
           },
           {
+            "term": "Agent Reassignment Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Metric","Filter"]
+          },
+          {
+            "term": "Agent Reassignment Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Metric","Filter"]
+          },
+          {
+            "term": "Group Reassignment Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Metric","Filter"]
+          },
+          {
+            "term": "Group Reassignment Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Metric","Filter"]
+          },
+          {
             "term": "Response Time (Bhrs)",
             "definition": "How is 'Response Time' calculated? Is it an average of all repsonse times in a given conversation?.",
             "tags": ["Metric","Filter"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
+            "term": "Response Time (Chrs)",
+            "definition": "TBD",
             "tags": ["Metric","Filter"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
+            "term": "SLA Policy ID",
+            "definition": "TBD",
             "tags": ["Metric","Filter"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
+            "term": "Waiting on Customer Duration",
+            "definition": "TBD",
             "tags": ["Metric","Filter"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
+            "term": "Waiting on Internal Team Duration",
+            "definition": "TBD",
             "tags": ["Metric","Filter"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
-            "tags": ["Metric","Filter"]
+            "term": "Agent Responses",
+            "definition": "TBD",
+            "tags": ["Metric"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
-            "tags": ["Metric","Filter"]
+            "term": "CSAT Triggered",
+            "definition": "TBD",
+            "tags": ["Metric"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
-            "tags": ["Metric","Filter"]
+            "term": "User Messages",
+            "definition": "TBD",
+            "tags": ["Metric"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
-            "tags": ["Metric","Filter"]
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Metric"]
           },
           {
-            "term": "XXXX",
-            "definition": "Elapsed time to first response during Business Hours.",
-            "tags": ["Metric","Filter"]
+            "term": "SLA Compliance Rate",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "First Response SLA Breach",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Next Response SLA Breach",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Resolution SLA Breach",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "SLA Compliance Rate - Response and Resolution Filter",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Chat Conversations",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Group Assigned At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Interaction Alias",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Reopen Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Member Assigned At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Issue Reopened",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Response Due Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Initiated At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Member Assigned At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "User ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Status",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Group Assigned At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Updated At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolved At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Offline Conversation",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation Alias",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Issue Resolved",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Asssigned Agent Name",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Assigned Agent Email",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Agent Timezone",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Label Category",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Label Subcategory",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "CSAT Received By",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Channel Topic",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Response By",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Response Assigned Group",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Policy Name",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Policy Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Breached At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation Status",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Assignment Status",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Actor Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Actor Sub Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Priority ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation Priority",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Action Performed By",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Assignet Agent During Resolution",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "AMB Intent",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "AMB Group",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "AMB Device Capabilities",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution SLA Breached",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Due Status",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Due By",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Resolution Due Since",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Response SLA Breached",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "User Properties",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Agent",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          }
+        ]
+      },
+      {
+        "name": "Chat Messages",
+        "items": [
+          {
+            "term": "Response Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Metric", "Filter"]
+          },
+          {
+            "term": "Response Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Metric", "Filter"]
+          },
+          {
+            "term": "Chat Messages",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Conversation Alias",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Sent At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Interaction ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Message Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "First Message Flag",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Sent By",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Breached At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "SLA Breach Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          }
+        ]
+      },
+      {
+        "name": "Sessions",
+        "items": [
+          {
+            "term": "Cortex ID",
+            "definition": "TBD",
+            "tags": ["Metric", "Filter"]
+          },
+          {
+            "term": "Answered",
+            "definition": "Total number of answered questions.",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Unanswered",
+            "definition": "Total number of unanswered questions.",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Conversations",
+            "definition": "Total Number of Conversations",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Answer Bot Attempts",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Agend Hand Overs",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Tickets Predicted",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Email Conversations",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Email Bot Attempts",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Tickets Assisted",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Answerbot Questions",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Created Date",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Answered",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Summary",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Locale",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Feedback Source",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Feedback Source Type",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Bot Feedback",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          }
+        ]
+      },
+      {
+        "name": "Answerbot Recommendations",
+        "items": [
+          {
+            "term": "Cortex ID",
+            "definition": "TBD",
+            "tags": ["Metric", "Filter"]
+          },
+          {
+            "term": "Helpful",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Not Helpful",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "No Feedback",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Sent",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Answers Marked Helpful",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Article Unhelpful Count",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Article Helpful Count",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Article Prediction Count",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Article Suggested Count",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Helpful Attempts",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Answerbot Recommendations",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "FAQ ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Created Date",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Question",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          }
+        ]
+      },
+      {
+        "name": "Bot Sessions",
+        "items": [
+          {
+            "term": "Bot Sessions",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Created At",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Billing Cycle",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          },
+          {
+            "term": "Tickets",
+            "definition": "TBD",
+            "tags": ["Filter"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Freshdesk: Custom Metrics",
+    "categories": [
+      {
+        "name": "Tickets",
+        "items": [
+          {
+            "term": "Calendar Hours",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Source",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Assign Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Priority",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Assign Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Subject",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "No. of Agent Reassigns Till Date",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Reply Count",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "No. of Times Reopened",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "No. of Group Reassigns Till Date",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Requester Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Requester Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Requester Language",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Language",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Timezone",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Requester Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Company Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Assign Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Product",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Internal Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Assigned Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Last Updated Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Internal Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Assigned Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Assigned to Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Reassigned to Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Reopened",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Private Notes by Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Assigned to Internal Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Time Spent (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Next Response Time (Brhs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Interaction",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Customer Responses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Public Notes",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Responses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Resolved Within SLA",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Resolved Within FCR",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Resolved",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Assigned to Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Time Spent (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Reassigned to Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Resolved Within FCR",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Resolved",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Assigned to Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Time Spent (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Reassigned to Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Reassigned to Internal Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Reassigned to Internal Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Resolved Within FCR",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets First Responded With SLA",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Reply",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Customer Reply",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Created",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Responses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Total Interaction",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Public Notes by Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "No. of Times Resolved",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution SLA Violated Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response SLA Violated Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "FCR Violated Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Next Response Compliant Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Next Response Violated Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Age",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "First Response Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolved Tickets Lifetime (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolved Tickets Lifetime (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Next Response Time (Crhs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Form Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Next Responded Within SLA",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Test Attribute #1",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Skill Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Positive Surveys",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Negative Surveys",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Assigned Time (Bhrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Assigned Time Attribute",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Public Notes",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Current Sentiment",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Initial User Sentiment",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Copilot Available For Assigned Agent?",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Assigned Time (Chrs)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Email AI Agent Response Rate",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Time Sheets",
+        "items": [
+          {
+            "term": "Time Tracked",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Note",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Charge Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Survey Results",
+        "items": [
+          {
+            "term": "Suvey Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Survey",
+        "items": [
+          {
+            "term": "Emotion",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Choices",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Survey Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Sent Via",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Question",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Customer",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Positive Survey Results",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Timezone",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Language",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Articles",
+        "items": [
+          {
+            "term": "Article Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Views",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Likes",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Dislikes",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Feedback Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Suggested",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Articles Created",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Articles Updated",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Articles Approved",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Articles Published",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Language",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Author",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "User Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "User Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Last Modified By",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Folder",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Category",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Portal",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Triage",
+        "items": [
+          {
+            "term": "Ticket Field",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket Source",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Value",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Value At Resolution",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Answerbot Questions",
+        "items": [
+          {
+            "term": "Cortex ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Answered",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Unanswered",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversations",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Answer Bot Attempts",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Handovers",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Predicted",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Email Conversations",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets Assisted",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Summary",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Locale",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feedback Source",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feedback Source Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Bot Containment Rate",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Answerbot Recommendation",
+        "items": [
+          {
+            "term": "FAQ_ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Cortex ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Helpful",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Not Helpful",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "No Feedback",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Sent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Answers Marked as Helpful",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Unhelpful Count",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Helpful Count",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Prediction Count",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Article Suggested Count",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Helpful Attempts",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Canned Response Suggestor",
+        "items": [
+          {
+            "term": "Canned Response",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Canned Response Title (3)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Canned Response ID (3)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Canned Response Title (2)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Canned Response Title (1)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket Status",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Applied Canned Response Title",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Canned Response ID (2)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Applied Canned Response ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Suggested Canned Response (1)",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Accuracy",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Agent Activity",
+        "items": [
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Duration",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Status Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Time Spent Logged In",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Available Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Unavailable Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Time Spent on Busy Statuses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Time Spent on Away Statuses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Status Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Availability - Ticket",
+        "items": [
+          {
+            "term": "Agent Email",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Duration",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket Availability",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Average Handling Time",
+        "items": [
+          {
+            "term": "Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Charge Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Handling Time",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Canned Responses",
+        "items": [
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Canned Response Title",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Note Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Canned Response Visibility",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Folder",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Canned Response Author",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Freddy Usage",
+        "items": [
+          {
+            "term": "Feature Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Event Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feature Used Flag",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agents",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Name",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Tickets",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Bot Sessions",
+        "items": [
+          {
+            "term": "Session ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Billing Cycle",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "FUNCTIONS",
+        "items": [
+          {
+            "term": "CEIL",
+            "definition": "Rounds up to the nearest integer.",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "FLOOR",
+            "definition": "Rounds down to the nearest integer",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "ROUND",
+            "definition": "Rounds to nearest integer or decimal precision",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "EXP",
+            "definition": "Returns e^x (exponential)",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "GREATEST",
+            "definition": "Returns the largest of a set of numbers",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "LEAST",
+            "definition": "Returns the smallest of a set of numbers",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "LN",
+            "definition": "Natural logarithm of a number",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "POWER",
+            "definition": "Raises one number to the power of another",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "SQRT",
+            "definition": "Square root",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "MEDIAN",
+            "definition": "Returns the middle value",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "STDDEV",
+            "definition": "Standard deviation",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "STDDEV_SAMP",
+            "definition": "Sample standard deviation",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "MODE",
+            "definition": "Most frequently occurring value",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "PERCENTILE",
+            "definition": "Returns a value at a given percentile",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "CORRELATION",
+            "definition": "Statistical correlation between two fields",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "VARIANCE_SAMPLE",
+            "definition": "Sample variance",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "VARIANCE",
+            "definition": "Population variance",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COVARIANCE_SAMP",
+            "definition": "Sample covariance",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COVARIANCE",
+            "definition": "Population covariance",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COUNT",
+            "definition": "Total number of rows or values",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COUNT_DISTINCT",
+            "definition": "Count of unique values",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COUNT_BLANKS",
+            "definition": "Count of null/blank values",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COUNT_NON_BLANKS",
+            "definition": "Count of non-empty values",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "COALESCE",
+            "definition": "Returns first non-null value",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "FORMAT",
+            "definition": "Format numbers as text",
+            "tags": ["Number Function"]
+          },
+          {
+            "term": "BETWEEN",
+            "definition": "XXXX",
+            "tags": ["Logical Function"]
+          },
+          {
+            "term": "NOTBETWEEN",
+            "definition": "XXXX",
+            "tags": ["Logical Function"]
+          },
+          {
+            "term": "ISNULL",
+            "definition": "XXXX",
+            "tags": ["Logical Function"]
+          },
+          {
+            "term": "ISNOTNULL",
+            "definition": "XXXX",
+            "tags": ["Logical Function"]
+          },
+          {
+            "term": "AVG",
+            "definition": "Average of values",
+            "tags": ["Aggregator Function"]
+          },
+          {
+            "term": "MAX",
+            "definition": "Highest value",
+            "tags": ["Aggregator Function"]
+          },
+          {
+            "term": "MIN",
+            "definition": "Lowest value",
+            "tags": ["Aggregator Function"]
+          },
+          {
+            "term": "SUM",
+            "definition": "Total sum",
+            "tags": ["Aggregator Function"]
+          },
+          {
+            "term": "TOTAL",
+            "definition": "Synonym for SUM in some tools",
+            "tags": ["Aggregator Function"]
           }
         ]
       }
