@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import data from './data.json';
 
 export default function App() {
+  // ▶ Type-to-select buffer and timer
+  const [typeSelectBuffer, setTypeSelectBuffer] = useState('');
+  const typeSelectTimer = useRef(null);
   // ▶ State
   const [selected, setSelected] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -110,15 +113,170 @@ export default function App() {
   useEffect(() => {
     const node = elementRefs.current[focusedIndex];
     if (node) node.focus();
+
+    // Automatically select the item under focus
+    const focused = visible[focusedIndex];
+    if (focused && focused.type === 'item') {
+      setSelected(focused.item);
+    }
   }, [focusedIndex, visible.length]);
 
+  // Cleanup type-to-select timer on unmount
+  useEffect(() => {
+    return () => {
+      if (typeSelectTimer.current) clearTimeout(typeSelectTimer.current);
+    };
+  }, []);
+
   // ▶ Keyboard nav inside sidebar
-  const onAsideKeyDown = e => {
+  const isTextInput = el =>
+  el && (
+    el.tagName === 'INPUT' ||
+    el.tagName === 'TEXTAREA' ||
+    el.isContentEditable
+  );
+
+// Expand group and all categories under it
+function expandGroupFully(group) {
+  setOpenGroups(o => ({ ...o, [group]: true }));
+  setOpenCategories(o => {
+    const updated = { ...o };
+    (categoriesByGroup[group] || []).forEach(cat => {
+      updated[`${group}::${cat}`] = true;
+    });
+    return updated;
+  });
+}
+
+// Collapse group and all categories under it, and reset open state
+function collapseGroupFully(group) {
+  setOpenGroups(o => ({ ...o, [group]: false }));
+  setOpenCategories(o => {
+    const updated = { ...o };
+    (categoriesByGroup[group] || []).forEach(cat => {
+      delete updated[`${group}::${cat}`];
+    });
+    return updated;
+  });
+}
+
+// Helper to get the label for any visible element
+function getLabel(el) {
+  if (el.type === 'group') return el.group;
+  if (el.type === 'category') return el.category;
+  if (el.type === 'item') return el.item.term;
+  return '';
+}
+
+const onAsideKeyDown = e => {
+    // Type-to-select logic
+    if (
+      !isTextInput(document.activeElement) &&
+      e.key.length === 1 &&
+      !e.ctrlKey && !e.metaKey && !e.altKey
+    ) {
+      const char = e.key;
+      const newBuffer = (typeSelectBuffer + char).trim();
+      setTypeSelectBuffer(newBuffer);
+
+      // Reset timer
+      if (typeSelectTimer.current) clearTimeout(typeSelectTimer.current);
+      typeSelectTimer.current = setTimeout(() => setTypeSelectBuffer(''), 700);
+
+      // Find first visible item (any tier) whose label starts with buffer
+      const idx = visible.findIndex(
+        el => getLabel(el).toLowerCase().startsWith(newBuffer.toLowerCase())
+      );
+      if (idx !== -1) {
+        setFocusedIndex(idx);
+      }
+      e.preventDefault();
+      return;
+    }
     const el = visible[focusedIndex];
     const max = visible.length - 1;
-    if (['ArrowDown','ArrowUp','ArrowRight','ArrowLeft','Enter',' '].includes(e.key)) {
-      e.preventDefault();
+    // Only handle keys if NOT in a text input and no modifier keys
+    const inTextInput = isTextInput(document.activeElement);
+    const hasModifier = e.metaKey || e.altKey || e.ctrlKey || e.shiftKey;
+    if (!inTextInput && !hasModifier) {
+      if (['ArrowDown','ArrowUp','ArrowRight','ArrowLeft','Enter'].includes(e.key)) {
+        e.preventDefault();
+      }
+      if (e.key === ' ') {
+        e.preventDefault();
+      }
     }
+
+    // Command + Up/DownArrow: jump to first/last visible group (tier 1)
+    if (e.metaKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+      e.preventDefault();
+      const groups = visible
+        .map((el, idx) => ({ el, idx }))
+        .filter(({ el }) => el.type === 'group');
+      if (groups.length) {
+        const newIdx = e.key === 'ArrowUp' ? groups[0].idx : groups[groups.length - 1].idx;
+        setFocusedIndex(newIdx);
+      }
+      return;
+    }
+
+    // Option + Up/DownArrow: jump to next/prev visible group if on group, else up a tier
+    if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+      e.preventDefault();
+      const current = visible[focusedIndex];
+      // If current is a group (tier 1), jump to next/prev visible group
+      if (current && current.type === 'group') {
+        const groups = visible
+          .map((el, idx) => ({ el, idx }))
+          .filter(({ el }) => el.type === 'group');
+        const pos = groups.findIndex(({ idx }) => idx === focusedIndex);
+        let newIdx;
+        if (e.key === 'ArrowUp' && pos > 0) newIdx = groups[pos - 1].idx;
+        if (e.key === 'ArrowDown' && pos < groups.length - 1) newIdx = groups[pos + 1].idx;
+        if (newIdx !== undefined) setFocusedIndex(newIdx);
+        return;
+      }
+      // For other tiers, jump to next/prev visible item at next higher tier
+      let targetType = null;
+      if (current && current.type === 'item') targetType = 'category';
+      else if (current && current.type === 'category') targetType = 'group';
+      if (!targetType) return;
+
+      const all = visible
+        .map((el, idx) => ({ el, idx }))
+        .filter(({ el }) => el.type === targetType);
+
+      let newIdx = undefined;
+      if (e.key === 'ArrowUp') {
+        for (let i = all.length - 1; i >= 0; i--) {
+          if (all[i].idx < focusedIndex) {
+            newIdx = all[i].idx;
+            break;
+          }
+        }
+      } else {
+        for (let i = 0; i < all.length; i++) {
+          if (all[i].idx > focusedIndex) {
+            newIdx = all[i].idx;
+            break;
+          }
+        }
+      }
+      if (newIdx !== undefined) setFocusedIndex(newIdx);
+      return;
+    }
+
+    // Option + RightArrow: expand group and all subcategories
+    if (e.altKey && e.key === 'ArrowRight' && el && el.type === 'group' && !openGroups[el.group]) {
+      expandGroupFully(el.group);
+      return;
+    }
+    // Option + LeftArrow: collapse group and all subcategories
+    if (e.altKey && e.key === 'ArrowLeft' && el && el.type === 'group' && openGroups[el.group]) {
+      collapseGroupFully(el.group);
+      return;
+    }
+
     if (e.key === 'ArrowDown') setFocusedIndex(i => Math.min(i + 1, max));
     if (e.key === 'ArrowUp') setFocusedIndex(i => Math.max(i - 1, 0));
 

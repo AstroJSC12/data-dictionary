@@ -21,6 +21,11 @@
             "tags": ["Metric"]
           },
           {
+            "term": "QnA Responses",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
             "term": "Recommendations",
             "definition": "Count of user queries where the bot responded with a Q&A recommendation.",
             "tags": ["Metric"]
@@ -46,33 +51,58 @@
             "tags": ["Metric"]
           },
           {
+            "term": "Answered Via Intents",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Unanswered On Intents",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
             "term": "Unanswered",
             "definition": "Count of user queries where the fallback action was triggered and the bot could not come up with a response.",
             "tags": ["Metric"]
           },
           {
             "term": "Agent Handover Rate",
-            "definition": "TBD.",
+            "definition": "The count/percentage of conversations handed over to the agent by the bot.",
             "tags": ["Metric"]
           },
           {
             "term": "Resolution Rate",
-            "definition": "TBD.",
+            "definition": "TBD",
             "tags": ["Metric"]
           },
           {
             "term": "Open Conversations",
-            "definition": "TBD.",
+            "definition": "TBD",
             "tags": ["Metric"]
           },
           {
             "term": "Bot Answers",
-            "definition": "TBD.",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Natural Language",
+            "definition": "Count of all the responses provided by the bot.",
             "tags": ["Metric"]
           },
           {
             "term": "Utterance Initiated At",
             "definition": "Timestamp at which the customer sent a message.",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Question",
+            "definition": "Title of the articles/Q&A configured on that bot.",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Question ID",
+            "definition": "Unique ID corresponding to each Q&A on the bot",
             "tags": ["Metric"]
           },
           {
@@ -87,7 +117,7 @@
           },
           {
             "term": "Conversation ID",
-            "definition": "Unique id for a bot conversation.",
+            "definition": "Unique ID for a bot conversation.",
             "tags": ["Filter", "Group By", "Tabular"]
           },
           {
@@ -108,6 +138,16 @@
           {
             "term": "Feedback",
             "definition": "Feedback provided by the user on a Q&A response.",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "NLP Module Type",
+            "definition": "The type of NLP feature being used - QA or Intents.",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Answer Response Type",
+            "definition": "The type of response provided by the bot on a user message - Single recommendation, Multiple recommendations, Small talk or Unanswered.",
             "tags": ["Filter", "Group By", "Tabular"]
           },
           {
@@ -252,7 +292,7 @@
           },
           {
             "term": "Resolution Rate",
-            "definition": "TBD.",
+            "definition": "TBD",
             "tags": ["Metric"]
           },
           {
@@ -612,7 +652,7 @@
         "items": [
           {
             "term": "cstmr::nm",
-            "definition": "TBD",
+            "definition": "Customer name",
             "tags": ["Attribute"]
           },
           {
@@ -632,22 +672,22 @@
           },
           {
             "term": "cstmr::eml",
-            "definition": "TBD",
+            "definition": "Customer email",
             "tags": ["Attribute"]
           },
           {
             "term": "cstmr::phn",
-            "definition": "TBD",
+            "definition": "Customer phone",
             "tags": ["Attribute"]
           },
           {
             "term": "cstmr::lng",
-            "definition": "TBD",
+            "definition": "Customer language",
             "tags": ["Attribute"]
           },
           {
             "term": "firstName",
-            "definition": "TBD",
+            "definition": "First name",
             "tags": ["Attribute"]
           },
           {
@@ -3406,7 +3446,7 @@
           },
           {
             "term": "Agent Handovers",
-            "definition": "TBD",
+            "definition": "The count/percentage of conversations handed over to the agent by the bot.",
             "tags": ["Attribute"]
           },
           {
@@ -3941,22 +3981,22 @@
           },
           {
             "term": "BETWEEN",
-            "definition": "XXXX",
+            "definition": "Checks if value lies within a range",
             "tags": ["Logical Function"]
           },
           {
             "term": "NOTBETWEEN",
-            "definition": "XXXX",
+            "definition": "Checks if outside a range",
             "tags": ["Logical Function"]
           },
           {
             "term": "ISNULL",
-            "definition": "XXXX",
+            "definition": "Checks if a value is null",
             "tags": ["Logical Function"]
           },
           {
             "term": "ISNOTNULL",
-            "definition": "XXXX",
+            "definition": "Checks if a value is NOT null",
             "tags": ["Logical Function"]
           },
           {
