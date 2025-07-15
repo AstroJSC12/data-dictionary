@@ -449,10 +449,23 @@ const onAsideKeyDown = e => {
                 </span>
               ))}
             </div>
-            <p className="mt-4">{selected.definition}</p>
+            {Array.isArray(selected.definition) ? (
+              <div className="mt-4 space-y-1">
+                {selected.definition.map((line, i) => (
+                  <div
+                    key={i}
+                    style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit' }}
+                  >
+                    {line}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-4" style={{ whiteSpace: 'pre-wrap' }}>{selected.definition}</p>
+            )}
           </>
         ) : (
-          <p>Select a term to see its definition.</p>
+          <><p>Select a term to see its definition.</p><p>Press 'Esc' or '/' to enter search field.</p><p>Use arrow keys to navigate.</p></>
         )}
       </main>
     </div>

@@ -367,12 +367,17 @@
           },
           {
             "term": "Resolution Type",
-            "definition": "The mode of resolution for a bot conversation..",
+            "definition": "The mode of resolution for a bot conversation.",
             "tags": ["Filter", "Group By"]
           },
           {
             "term": "Agent Handover Type",
-            "definition": "The mode of agent handover for a bot conversation.",
+            "definition":[ "The mode of agent handover for a bot conversation.",
+                  "       No agent handover == Conversation was not handed over to an agent.",
+                  "       Assigned to agent through direct transfer == TBD",
+                  "       Assigned to group during conversation == TBD",
+                  "       Assigned to agent due to fallback == Fallback flows will be triggered when the bot is not able to respond to the customer’s question.",
+                  "       Assigned to agent due to unhelpful feedback == Triggered when the user marks the bot response as unhelpful."],
             "tags": ["Filter", "Group By"]
           },
           {
@@ -824,8 +829,8 @@
             "term": "First Response Time (Bhrs)",
             "definition": [
             "Time taken after agent assignment to send the first response, considering the business hours. If no agent is assigned and the first response has been provided, the first response time will be calculated based on:",
-            "1. The time the conversation was initiated or,",
-            "2. The time the conversation was handed over by the bot."
+            "       1. The time the conversation was initiated or,",
+            "       2. The time the conversation was handed over by the bot."
             ],
             "tags": ["Metric", "Filter", "Group By"]
           },
