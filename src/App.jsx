@@ -111,8 +111,11 @@ export default function App() {
 
   // ▶ Sync DOM focus
   useEffect(() => {
-    const node = elementRefs.current[focusedIndex];
-    if (node) node.focus();
+    // Only auto-focus sidebar items if the search input is NOT focused
+    if (document.activeElement !== searchInputRef.current) {
+      const node = elementRefs.current[focusedIndex];
+      if (node) node.focus();
+    }
 
     // Automatically select the item under focus
     const focused = visible[focusedIndex];
