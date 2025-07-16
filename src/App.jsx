@@ -69,7 +69,14 @@ export default function App() {
 
   // ▶ Filtered items for search
   const filteredItems = trimmedTerm
-    ? allItems.filter(i => i.term.toLowerCase().includes(trimmedTerm))
+    ? allItems.filter(i =>
+        i.term.toLowerCase().includes(trimmedTerm) ||
+        (typeof i.definition === 'string'
+          ? i.definition.toLowerCase().includes(trimmedTerm)
+          : Array.isArray(i.definition)
+            ? i.definition.some(line => line.toLowerCase().includes(trimmedTerm))
+            : false)
+      )
     : [];
 
   // ▶ Unique groups & categories
@@ -465,7 +472,7 @@ const onAsideKeyDown = e => {
             )}
           </>
         ) : (
-          <><p>Select a term to see its definition.</p><p>Press 'Esc' or '/' to enter search field.</p><p>Use arrow keys to navigate.</p></>
+          <><p>Select a term to see its definition.</p><p>Press 'Esc' or '/' to enter search field.</p><p>Use arrow keys to navigate (← or → to fold/unfold).</p></>
         )}
       </main>
     </div>

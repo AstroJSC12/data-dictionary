@@ -3861,172 +3861,206 @@
         "items": [
           {
             "term": "CEIL",
-            "definition": "Rounds up to the nearest integer.",
+            "definition": ["Rounds up to the nearest integer.",
+          "Example: Convert revenue per unit to the next whole number (e.g., $23.01 → 24)"],
             "tags": ["Number Function"]
           },
           {
             "term": "FLOOR",
-            "definition": "Rounds down to the nearest integer",
+            "definition": ["Rounds down to the nearest integer",
+          "Example: Used when you need a conservative minimum (e.g., discount rounding down)"],
             "tags": ["Number Function"]
           },
           {
             "term": "ROUND",
-            "definition": "Rounds to nearest integer or decimal precision",
+            "definition": ["Rounds to nearest integer or decimal precision",
+          "Example: Round a calculated average order value to 2 decimal places"],
             "tags": ["Number Function"]
           },
           {
             "term": "EXP",
-            "definition": "Returns e^x (exponential)",
+            "definition": ["Returns e^x (exponential)",
+          "Example: For growth modeling or decay calculations (e.g., exponential forecasting)"],
             "tags": ["Number Function"]
           },
           {
             "term": "GREATEST",
-            "definition": "Returns the largest of a set of numbers",
+            "definition": ["Returns the largest of a set of numbers",
+          "Example: Find highest score across multiple columns per record"],
             "tags": ["Number Function"]
           },
           {
             "term": "LEAST",
-            "definition": "Returns the smallest of a set of numbers",
+            "definition": ["Returns the smallest of a set of numbers",
+          "Example: Identify minimum inventory across multiple warehouses"],
             "tags": ["Number Function"]
           },
           {
             "term": "LN",
-            "definition": "Natural logarithm of a number",
+            "definition": ["Natural logarithm of a number",
+          "Example: Log transformation for statistical modeling or normalization"],
             "tags": ["Number Function"]
           },
           {
             "term": "POWER",
-            "definition": "Raises one number to the power of another",
+            "definition": ["Raises one number to the power of another",
+          "Example: Calculate compound growth, e.g., POWER(1 + rate, time)"],
             "tags": ["Number Function"]
           },
           {
             "term": "SQRT",
-            "definition": "Square root",
+            "definition": ["Square root",
+          "Example: ✅ Use case: Calculate distance, or root mean square. For example, SQRT(variance) to get standard deviation"],
             "tags": ["Number Function"]
           },
           {
             "term": "MEDIAN",
-            "definition": "Returns the middle value",
+            "definition": ["Returns the middle value",
+          "Example: Useful for outlier-resistant central tendency (e.g., median purchase price)"],
             "tags": ["Number Function"]
           },
           {
             "term": "STDDEV",
-            "definition": "Standard deviation",
+            "definition": ["Standard deviation",
+          "Example: Measure spread of values like user session times"],
             "tags": ["Number Function"]
           },
           {
             "term": "STDDEV_SAMP",
-            "definition": "Sample standard deviation",
+            "definition": ["Sample standard deviation",
+          "Example: Used when you’re analyzing a sample subset of the data"],
             "tags": ["Number Function"]
           },
           {
             "term": "MODE",
-            "definition": "Most frequently occurring value",
+            "definition": ["Most frequently occurring value",
+          "Example: Identify the most common product ordered"],
             "tags": ["Number Function"]
           },
           {
             "term": "PERCENTILE",
-            "definition": "Returns a value at a given percentile",
+            "definition": ["Returns a value at a given percentile",
+          "Example: PERCENTILE(sales, 0.9) gives value at 90th percentile"],
             "tags": ["Number Function"]
           },
           {
             "term": "CORRELATION",
-            "definition": "Statistical correlation between two fields",
+            "definition": ["Statistical correlation between two fields",
+          "Example: See how strongly advertising spend correlates with sales"],
             "tags": ["Number Function"]
           },
           {
             "term": "VARIANCE_SAMPLE",
-            "definition": "Sample variance",
+            "definition": ["Sample variance",
+          "Example: Used when working with a statistical sample"],
             "tags": ["Number Function"]
           },
           {
             "term": "VARIANCE",
-            "definition": "Population variance",
+            "definition": ["Population variance",
+          "Example: Measure of spread for full datasets"],
             "tags": ["Number Function"]
           },
           {
             "term": "COVARIANCE_SAMP",
-            "definition": "Sample covariance",
+            "definition": ["Sample covariance",
+          "Example: See how two variables move together in a sample"],
             "tags": ["Number Function"]
           },
           {
             "term": "COVARIANCE",
-            "definition": "Population covariance",
+            "definition": ["Population covariance",
+          "Example: Like COVARIANCE_SAMP, but for a full population"],
             "tags": ["Number Function"]
           },
           {
             "term": "COUNT",
-            "definition": "Total number of rows or values",
+            "definition": ["Total number of rows or values",
+          "Example: Count number of transactions"],
             "tags": ["Number Function"]
           },
           {
             "term": "COUNT_DISTINCT",
-            "definition": "Count of unique values",
+            "definition": ["Count of unique values",
+          "Example: Number of unique users"],
             "tags": ["Number Function"]
           },
           {
             "term": "COUNT_BLANKS",
-            "definition": "Count of null/blank values",
+            "definition": ["Count of null/blank values",
+          "Example: How many empty customer names in database"],
             "tags": ["Number Function"]
           },
           {
             "term": "COUNT_NON_BLANKS",
-            "definition": "Count of non-empty values",
+            "definition": ["Count of non-empty values",
+          "Example: Number of products with prices entered"],
             "tags": ["Number Function"]
           },
           {
             "term": "COALESCE",
-            "definition": "Returns first non-null value",
+            "definition": ["Returns first non-null value",
+          "Example: Use fallback if primary metric is null (e.g., COALESCE(profit_margin, default_value))"],
             "tags": ["Number Function"]
           },
           {
             "term": "FORMAT",
-            "definition": "Format numbers as text",
+            "definition": ["Format numbers as text",
+          "Example: Show 1,000,000 as “1M” or format decimals to 2 places"],
             "tags": ["Number Function"]
           },
           {
             "term": "BETWEEN",
-            "definition": "Checks if value lies within a range",
+            "definition": ["Checks if value lies within a range",
+          "Example: E.g., BETWEEN(sales, 1000, 5000)"],
             "tags": ["Logical Function"]
           },
           {
             "term": "NOTBETWEEN",
-            "definition": "Checks if outside a range",
+            "definition": ["Checks if outside a range",
+          "Example: Filter out data between thresholds"],
             "tags": ["Logical Function"]
           },
           {
             "term": "ISNULL",
-            "definition": "Checks if a value is null",
+            "definition": ["Checks if a value is null",
+          "Example: Use in conditional logic to fill gaps"],
             "tags": ["Logical Function"]
           },
           {
             "term": "ISNOTNULL",
-            "definition": "Checks if a value is NOT null",
+            "definition": ["Checks if a value is NOT null",
+          "Example: Include only complete records"],
             "tags": ["Logical Function"]
           },
           {
             "term": "AVG",
-            "definition": "Average of values",
+            "definition": ["Average of values",
+          "Example: Average revenue per customer"],
             "tags": ["Aggregator Function"]
           },
           {
             "term": "MAX",
-            "definition": "Highest value",
+            "definition": ["Highest value",
+          "Example: Max number of purchases"],
             "tags": ["Aggregator Function"]
           },
           {
             "term": "MIN",
-            "definition": "Lowest value",
+            "definition": ["Lowest value",
+          "Example: Minimum cart value"],
             "tags": ["Aggregator Function"]
           },
           {
             "term": "SUM",
-            "definition": "Total sum",
+            "definition": ["Total sum",
+          "Example: Total sales"],
             "tags": ["Aggregator Function"]
           },
           {
             "term": "TOTAL",
-            "definition": "Synonym for SUM in some tools",
+            "definition": ["Synonym for SUM in some tools",
+          "Example: May act similarly depending on your BI tool"],
             "tags": ["Aggregator Function"]
           }
         ]
