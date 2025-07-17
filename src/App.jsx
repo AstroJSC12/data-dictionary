@@ -1,19 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import data from './data.json';
 
+// The main React component for the data dictionary app
 export default function App() {
   // ▶ Type-to-select buffer and timer
+  // typeSelectBuffer: Stores the current buffer of characters typed for type-to-select navigation
+  // typeSelectTimer: Timer ref to clear the buffer after a short delay
   const [typeSelectBuffer, setTypeSelectBuffer] = useState('');
   const typeSelectTimer = useRef(null);
   // ▶ State
+  // selected: The currently selected item (term)
+  // searchTerm: The search bar input value
+  // focusedIndex: The index of the currently keyboard-focused element in the sidebar
+  // openGroups: Tracks which groups are expanded (by group name)
+  // openCategories: Tracks which categories are expanded (by group::category key)
   const [selected, setSelected] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [openGroups, setOpenGroups] = useState({});
   const [openCategories, setOpenCategories] = useState({});
 
-  // ⬇ NEW — clear everything and reset focus
-  // make it stable and debug it
+  // clearSearch: Resets all state to initial, empties search, closes all groups/categories, resets focus/selection
   const clearSearch = React.useCallback(() => {
     console.log('🏷️ [clearSearch] — resetting all state');
     setSearchTerm('');
@@ -21,16 +28,22 @@ export default function App() {
     setOpenCategories({});
     setFocusedIndex(-1);
     setSelected(null);
+    // Focus the search input after clearing
     searchInputRef.current?.focus();
   }, []);
     
 
   // ▶ Refs
+  // searchInputRef: Ref to the search input box (for focus control)
+  // asideRef: Ref to the sidebar container (for keyboard events)
+  // elementRefs: Ref array for all visible sidebar elements (for focus management)
   const searchInputRef = useRef(null);
   const asideRef = useRef(null);
   const elementRefs = useRef([]);
 
-  // ▶ Global '/' or Ctrl+K shortcut → focus search
+  // ▶ Global keyboard shortcuts
+  // '/' or Ctrl+K anywhere focuses the search input
+  // 'Escape' anywhere clears search and resets state
   useEffect(() => {
     const onGlobalKey = e => {
       console.log('🔑 global key:', e.key);
@@ -45,6 +58,7 @@ export default function App() {
         clearSearch();
       }
     };  
+    // Listen globally in capture phase so it works even if input is not focused
     console.log('🚀 adding global keydown listener (capture phase)');
     window.addEventListener('keydown', onGlobalKey, true);
     return () => {
@@ -54,20 +68,23 @@ export default function App() {
   }, [clearSearch]);
   
   // ▶ Data flattening
+  // trimmedTerm: Lowercased, trimmed search input for filtering
   const trimmedTerm = searchTerm.trim().toLowerCase();
+  // allItems: Flattens all groups/categories/items into a single array of item objects
   const allItems = data.flatMap(g =>
     g.categories.flatMap(cat =>
       cat.items.map(item => ({
-        group: g.group,
-        category: cat.name,
-        term: item.term,
-        definition: item.definition,
-        tags: item.tags || []
+        group: g.group,           // Group name
+        category: cat.name,       // Category name
+        term: item.term,          // The term
+        definition: item.definition, // The definition (string or array)
+        tags: item.tags || []     // Optional tags
       }))
     )
   );
 
   // ▶ Filtered items for search
+  // filteredItems: All items matching the search term (term or definition)
   const filteredItems = trimmedTerm
     ? allItems.filter(i =>
         i.term.toLowerCase().includes(trimmedTerm) ||
@@ -80,10 +97,12 @@ export default function App() {
     : [];
 
   // ▶ Unique groups & categories
+  // groups: Array of group names to display (filtered if searching)
   const groups = trimmedTerm
     ? Array.from(new Set(filteredItems.map(i => i.group)))
     : data.map(g => g.group);
 
+  // categoriesByGroup: For each group, array of category names (filtered if searching)
   const categoriesByGroup = groups.reduce((acc, grp) => {
     const source = trimmedTerm
       ? filteredItems
@@ -93,20 +112,23 @@ export default function App() {
   }, {});
 
   // ▶ Build flat list for keyboard nav
+  // elementRefs.current: Reset the array of refs for focusable elements
   elementRefs.current = [];
+  // visible: Flat array of all visible sidebar elements (groups, categories, items) in order
   const visible = [];
 
   if (trimmedTerm) {
-    // flat list of search results
+    // If searching, show only matching items as a flat list
     filteredItems.forEach(item => visible.push({ type: 'item', item }));
   } else {
-    // nested groups → categories → items
+    // Otherwise, build nested list: group → category → items
     groups.forEach(grp => {
-      visible.push({ type: 'group', group: grp });
+      visible.push({ type: 'group', group: grp }); // Add group header
       if (openGroups[grp]) {
         categoriesByGroup[grp].forEach(cat => {
-          visible.push({ type: 'category', group: grp, category: cat });
+          visible.push({ type: 'category', group: grp, category: cat }); // Add category header
           if (openCategories[`${grp}::${cat}`]) {
+            // If category is open, add all items under it
             allItems
               .filter(i => i.group === grp && i.category === cat)
               .forEach(item => visible.push({ type: 'item', item }));
@@ -118,59 +140,64 @@ export default function App() {
 
   // ▶ Sync DOM focus
   useEffect(() => {
-    // Only auto-focus sidebar items if the search input is NOT focused
+    // When focusedIndex changes, auto-focus the corresponding sidebar element (unless search input is focused)
     if (document.activeElement !== searchInputRef.current) {
       const node = elementRefs.current[focusedIndex];
       if (node) node.focus();
     }
 
-    // Automatically select the item under focus
+    // Automatically select the item under focus (for detail pane)
     const focused = visible[focusedIndex];
     if (focused && focused.type === 'item') {
       setSelected(focused.item);
     }
   }, [focusedIndex, visible.length]);
 
-  // Cleanup type-to-select timer on unmount
+  // ▶ Cleanup type-to-select timer on unmount
   useEffect(() => {
+    // Prevent memory leaks by clearing the timer if component unmounts
     return () => {
       if (typeSelectTimer.current) clearTimeout(typeSelectTimer.current);
     };
   }, []);
 
   // ▶ Keyboard nav inside sidebar
+  // isTextInput: Utility to check if an element is a text input (to avoid hijacking typing)
   const isTextInput = el =>
-  el && (
-    el.tagName === 'INPUT' ||
-    el.tagName === 'TEXTAREA' ||
-    el.isContentEditable
-  );
+    el && (
+      el.tagName === 'INPUT' ||
+      el.tagName === 'TEXTAREA' ||
+      el.isContentEditable
+    );
 
 // Expand group and all categories under it
+// Called when user wants to fully expand a group (including all categories)
 function expandGroupFully(group) {
   setOpenGroups(o => ({ ...o, [group]: true }));
   setOpenCategories(o => {
     const updated = { ...o };
     (categoriesByGroup[group] || []).forEach(cat => {
-      updated[`${group}::${cat}`] = true;
+      updated[`${group}::${cat}`] = true; // Open every category in this group
     });
     return updated;
   });
 }
 
 // Collapse group and all categories under it, and reset open state
+// Called when user wants to fully collapse a group (and all its categories)
 function collapseGroupFully(group) {
   setOpenGroups(o => ({ ...o, [group]: false }));
   setOpenCategories(o => {
     const updated = { ...o };
     (categoriesByGroup[group] || []).forEach(cat => {
-      delete updated[`${group}::${cat}`];
+      delete updated[`${group}::${cat}`]; // Remove open state for each category
     });
     return updated;
   });
 }
 
 // Helper to get the label for any visible element
+// Used for type-to-select navigation (returns string label)
 function getLabel(el) {
   if (el.type === 'group') return el.group;
   if (el.type === 'category') return el.category;
