@@ -317,7 +317,7 @@
           },
           {
             "term": "Bot Messages",
-            "definition": "The number of messages sent by the bot before a conversation is abandoned or resolved..",
+            "definition": "The number of messages sent by the bot before a conversation is abandoned or resolved.",
             "tags": ["Metric"]
           },
           {
@@ -1071,12 +1071,12 @@
           },
           {
             "term": "First Response Assigned Group",
-            "definition": "The group assigned to the conversation at the time the agent provided the first response..",
+            "definition": "The group assigned to the conversation at the time the agent provided the first response.",
             "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "First Response At",
-            "definition": "The timestamp at which the agent sent the first response .",
+            "definition": "The timestamp at which the agent sent the first response.",
             "tags": ["Filter"]
           },
           {
@@ -1291,12 +1291,23 @@
           },
           {
             "term": "First Response Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": ["Time taken after agent assignment to send the first response, considering the business hours.",
+          "If no agent is assigned and the first response has been provided, the first response time will be calculated based on:",
+          "       1. the time the conversation was initiated, or",
+          "       2. the time the conversation was handed over by the bot."],
+            "tags": ["Metric", "Filter", "Group By"]
+          },
+          {
+            "term": "First Response Time (Chrs)",
+            "definition": ["Time taken after agent assignment to send the first response, regardless of business hours.",
+          "If no agent is assigned and the first response has been provided, the first response time will be calculated based on:",
+          "       1. the time the conversation was initiated, or",
+          "       2. the time the conversation was handed over by the bot."],
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "First Agent Response Time (Chrs)",
-            "definition": "TBD",
+            "definition": "Time taken after agent assignment to send the first response, considering the calendar hours.",
             "tags": ["Attribute"]
           },
           {
@@ -1306,28 +1317,33 @@
           },
           {
             "term": "Reopen Type",
-            "definition": "TBD",
+            "definition": "Reason for a conversation getting reopened - New, Customer Reopen, Agent Reopen, DSAT Reopen.",
             "tags": ["Attribute"]
           },
           {
             "term": "Response Due Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Identifier to understand if a conversation has first response due or response due.",
+            "tags": ["Filter"]
           },
           {
             "term": "Resolution Time",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The time from the first agent assignment to resolution. If the agent responded before assignment or if there's no agent assignment, it's the time from conversation creation or bot handover to resolution.",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
-            "term": "First Agent Assignment Time",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "term": "First Agent Assignment Time (Bhrs)",
+            "definition": "Time taken post-initiation, to assign the conversation to an agent (only including business hours in time calculation)",
+            "tags": ["Metric", "Filter", "Group By"]
+          },
+          {
+            "term": "First Agent Assignment Time (Chrs)",
+            "definition": "Time taken post-initiation to assign the conversation to an agent (regardless of business hours)",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier corresponding to a conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "User ID",
@@ -1336,23 +1352,23 @@
           },
           {
             "term": "Status",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Current status of the conversation - Open ,waiting on customer, waiting on internal team, or resolved.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Interaction Time",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The time from the first agent assignment to the last agent response. If the agent responded before assignment or if there's no agent assignment, it's the time from conversation creation or bot handover to the last agent response.",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Wait Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken to get first response from the time conversation was initiated (only including business hours in time calculation)",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "First Group Assignment Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken post-initiation to assign the conversation to a group (only including business hours in time calculation)",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Conversation Alias",
@@ -1361,23 +1377,23 @@
           },
           {
             "term": "Interaction ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier for every interaction on chat",
+            "tags": ["Metric"]
           },
           {
             "term": "Wait Time (Chrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken to get the first response from the time the conversation was initiated, regardless of the business hours",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Channel",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The channel on which the conversation was initiated",
+            "tags": ["Filter"]
           },
           {
             "term": "Agent Responses",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Count of agent responses on an interaction",
+            "tags": ["Metric"]
           },
           {
             "term": "CSAT Triggered",
@@ -1386,8 +1402,8 @@
           },
           {
             "term": "User Messages",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Count of user messages across conversations",
+            "tags": ["Metric"]
           },
           {
             "term": "CSAT Score",
@@ -1396,158 +1412,158 @@
           },
           {
             "term": "Agent Reassignment Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken to re-assign a chat to another agent after the first assignment.",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Agent Reassignment Time (Chrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken to re-assign a chat to another agent after the first assignment, regardless of the business hours.",
+            "tags": ["Metric","Filter","Group By"]
           },
           {
             "term": "Group Reassignment Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken to re-assign a chat to another group after the first assignment.",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Group Reassignment Time (Chrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken to re-assign a chat to another group after the first assignment, regardless of the business hours.",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Assigned Agent Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the currently assigned agent.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Assigned Agent Email",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Email of the currently assigned agent.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Agent Timezone",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Timezone in which the agent's profile has been set up.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Group Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Chat group to which the interaction is assigned.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Label Category",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Label category applied to an interaction post-resolution.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Label Subcategory",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Label subcategory applied to an interaction post-resolution.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier corresponding to a conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "CSAT Received By",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The name of the agent who was assigned to the interaction when CSAT was provided",
+            "tags": ["Filter"]
           },
           {
             "term": "Channel Topic",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The channel topic on which the conversation was initiated",
+            "tags": ["Filter"]
           },
           {
             "term": "Response Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken by the agent to respond to subsequent user messages after the first response is sent (only including business hours in time calculation)",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Response Time (Chrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken by the agent to respond to subsequent user messages after the first response is sent, regardless of the business hours",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "First Response By",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the agent who provided the first response",
+            "tags": ["Filter"]
           },
           {
             "term": "First Response Assigned Group",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The group assigned to the conversation at the time the agent provided the first response.",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "SLA Policy ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier for an sla policy",
+            "tags": ["Metric"]
           },
           {
             "term": "SLA Policy Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The name of the SLA policy applied to the conversation",
+            "tags": ["Filter"]
           },
           {
             "term": "SLA Policy Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The policy type applied to a conversation - First response, every response ",
+            "tags": ["Filter"]
           },
           {
             "term": "SLA Compliance Rate",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Count of interactions that adhered to the SLA policy  percentage of time a conversation was resolved within the SLA duration",
+            "tags": ["Metric"]
           },
           {
             "term": "First Response SLA Breach",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides the count of interactions where SLA breached due first response not going within the specified time",
+            "tags": ["Metric"]
           },
           {
             "term": "Next Response SLA Breach",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides the count of interactions where SLA breached due next response not going within the specified time",
+            "tags": ["Metric"]
           },
           {
             "term": "Conversation Status",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Current conversation status of the interaction - Open, Waiting on the customer, waiting on internal team, Resolved",
+            "tags": ["Filter"]
           },
           {
             "term": "Assignment Status",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Current assignment status of an interaction- Assigned or unassigned",
+            "tags": ["Filter"]
           },
           {
             "term": "Resolution Actor Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Indicates whether the resolution was handled by an agent, through automation, or by a bot.",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Resolution Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides information on the mode of resolution - agent, auto_resolve, , api_resolved",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Resolution Actor Sub Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides on information on the actor who resolved the conversation - agent , system or automation",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Priority ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique ID corresponding to each priority status",
+            "tags": ["Filter"]
           },
           {
             "term": "Conversation Priority",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Priority assigned to a conversation - High, low, medium",
+            "tags": ["Filter"]
           },
           {
             "term": "Survey Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The name of the survey, as configured on the survey builder, that was sent to the user",
+            "tags": ["Filter"]
           },
           {
             "term": "Bot Conversation Flag",
@@ -1556,8 +1572,8 @@
           },
           {
             "term": "Conversation Priority",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Priority assigned to a conversation - High, low, medium",
+            "tags": ["Filter"]
           },
           {
             "term": "Waiting on Customer Duration",
@@ -1571,13 +1587,13 @@
           },
           {
             "term": "Resolution Action Performed",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the agent who performed the resolution action",
+            "tags": ["Filter", "Tabular"]
           },
           {
             "term": "Assignet Agent During Resolution",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the agent who was assigned to the conversation when the conversation got resolved",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "AMB Intent",
@@ -1621,38 +1637,38 @@
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier corresponding to a conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Interaction ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier for every interaction on chat",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Response Time (Bhrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken by the agent to respond to subsequent user messages after the first response is sent (only including business hours in time calculation)",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Message ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique message id where the feedback was provided by the user.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Response time (Chrs)",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Time taken by the agent to respond to subsequent user messages after the first response is sent, regardless of the business hours.",
+            "tags": ["Metric", "Filter", "Group By"]
           },
           {
             "term": "Message Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The message type (carousel, drop down, calendar, image, attachments, private note, mention, etc.)",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Sent By",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Nested: Agent, API, BOT",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "SLA Breach Type",
@@ -1681,8 +1697,8 @@
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier corresponding to a conversation.",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Use of Abusive or Filler Words",
@@ -1706,23 +1722,23 @@
           },
           {
             "term": "Agent Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the agent.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Agent Email",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Email of the agent.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Group Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Chat group to which the interaction is assigned",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Feedback",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Feedback provided by the user on a Q&A response",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Feedback Comment",
@@ -1741,13 +1757,13 @@
           },
           {
             "term": "Agent Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the agent",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Agent Email",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Email of the agent",
+            "tags": ["Filter", "Group By"]
           }
         ]
       },
@@ -1756,13 +1772,18 @@
         "items": [
           {
             "term": "Conversation ID",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Unique identifier corresponding to a conversation.",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Beginning Sentiment Numeric",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides an average beginning sentiment value on a scale of 3. 1 -> Negative , 2 -> Neutral , 3 -> Negative",
+            "tags": ["Metric", "Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Ending Sentiment Numeric",
+            "definition": "Provides an average ending sentiment value on a scale of 3. 1 -> Negative , 2 -> Neutral , 3 -> Negative",
+            "tags": ["Metric", "Filter", "Group By", "Tabular"]
           },
           {
             "term": "Sentiment on Resolution Num",
@@ -1771,38 +1792,38 @@
           },
           {
             "term": "Resolution Actor Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Indicates whether the resolution was handled by an agent, through automation, or by a bot.",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Label Sub-Category",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Value of the label sub category of the conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Label Category",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Value of the label category of the conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Resolution Type",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides information on the mode of resolution - agent, auto_resolve, , api_resolved",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Source",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Provides the initial channel of conversation (webchat, facebook, whatsapp , instagram, phone)",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Conversation Status",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Current status of the conversation - Open ,waiting on customer, waiting on internal team, or resolved.",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Channel Topic",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the topic from which conversation was initiated",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "First Responder Type",
@@ -1811,23 +1832,23 @@
           },
           {
             "term": "Agent Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Name of the agent.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Group Name",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "Chat group to which the interaction is assigned.",
+            "tags": ["Filter", "Group By"]
           },
           {
             "term": "Resolution Attributed To",
-            "definition": "TBD",
+            "definition": "TBD - IMPORTANT",
             "tags": ["Attribute"]
           },
           {
             "term": "Initial User Sentiment",
-            "definition": "TBD",
-            "tags": ["Attribute"]
+            "definition": "The initial user sentiment for a conversation - Positive, negative , neutral",
+            "tags": ["Filter", "Group By", "Tabular"]
           },
           {
             "term": "Sentiment on Resolution",
@@ -2146,7 +2167,7 @@
           },
           {
             "term": "Agent Responses",
-            "definition": "TBD",
+            "definition": "Count of agent messages across conversationsCount of user messages across conversations",
             "tags": ["Metric"]
           },
           {
@@ -2156,27 +2177,27 @@
           },
           {
             "term": "User Messages",
-            "definition": "TBD",
+            "definition": "Count of user messages across conversations",
             "tags": ["Metric"]
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
+            "definition": "Unique identifier corresponding to a conversation",
             "tags": ["Metric"]
           },
           {
             "term": "SLA Compliance Rate",
-            "definition": "TBD",
+            "definition": "Count of interactions that adhered to the SLA policy",
             "tags": ["Metric"]
           },
           {
             "term": "First Response SLA Breach",
-            "definition": "TBD",
+            "definition": "Provides the count of interactions where SLA breached due first response not going within the specified time",
             "tags": ["Metric"]
           },
           {
             "term": "Next Response SLA Breach",
-            "definition": "TBD",
+            "definition": "Provides the count of interactions where SLA breached due next response not going within the specified time",
             "tags": ["Metric"]
           },
           {
@@ -2196,7 +2217,7 @@
           },
           {
             "term": "Group Assigned At",
-            "definition": "TBD",
+            "definition": "The time at which a group was assigned to a conversation.",
             "tags": ["Filter"]
           },
           {
@@ -2211,22 +2232,22 @@
           },
           {
             "term": "Member Assigned At",
-            "definition": "TBD",
+            "definition": "Timestamp when interaction was assigned to an agent anytime (new or reopened).",
             "tags": ["Filter"]
           },
           {
             "term": "Issue Reopened",
-            "definition": "TBD",
+            "definition": "Yes or No response to CSAT question.",
             "tags": ["Filter"]
           },
           {
             "term": "Response Due Type",
-            "definition": "TBD",
+            "definition": "Identifier to understand if a conversation has first response due or response due.",
             "tags": ["Filter"]
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
+            "definition": "Unique identifier corresponding to a conversation.",
             "tags": ["Filter"]
           },
           {
@@ -2476,12 +2497,12 @@
           },
           {
             "term": "Conversation ID",
-            "definition": "TBD",
+            "definition": "Unique identifier corresponding to a conversation.",
             "tags": ["Filter"]
           },
           {
             "term": "Interaction ID",
-            "definition": "TBD",
+            "definition": "Unique identifier corresponding to an interaction.",
             "tags": ["Filter"]
           },
           {
