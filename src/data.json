@@ -1279,7 +1279,672 @@
     ]
   },
   {
-    "group": "Freshchat: Custom Metrics",
+    "group": "Freshchat: Custom Metrics (Bot)",
+    "categories": [
+      {
+        "name": "API Response",
+        "items": [
+          {
+            "term": "Status",
+            "definition": "Status code received on the response of the API call",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "Unique ID corresponding to each bot conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Time Taken",
+            "definition": "Time taken to get a response after an API call is made.",
+            "tags": ["Metric","Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Response Date",
+            "definition": "Timestamp at which the response of the API call was received",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Customer",
+            "definition": "A unique identifier for the user that interacts with the bot",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "API Name",
+            "definition": "Name of the API configured in the API library section of the bot",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Flow",
+            "definition": "Name of the flow on which the API was triggered",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "API Triggered At",
+            "definition": "Timestamp at which the API call was made",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Bot",
+            "definition": "Name of the bot on which an API was initiated",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Bot Version",
+            "definition": "Version number of the bot on which an API was initiated",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Bot Variables",
+            "definition": "Provides a list of all the bot variables stored on bots and the ability to filter/aggregate on any of those variables",
+            "tags": ["Filter", "Group By", "Tabular"]
+          }
+        ]
+      },
+      {
+        "name": "Bot Conversations",
+        "items": [
+          {
+            "term": "Customer",
+            "definition": "A unique identifier for the user that interacts with the bot",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Landing URL",
+            "definition": "The URL on which the bot conversation was initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "Unique ID for a bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversation Hash",
+            "definition": "A unique alphanumeric identifier for any conversation with the bot",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Status",
+            "definition": "Current status of the conversation. For example, New, open, unassigned, assigned, resolved, deleted, Any (includes all interactions)",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot",
+            "definition": "Name of the bot on which conversations were initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot Version",
+            "definition": "The version of the bot on which the conversation was initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Flow",
+            "definition": "Name of the flow on which the conversation was triggered",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Resolution Type",
+            "definition": "The mode of resolution for a bot conversation.",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Agent Handover Type",
+            "definition": "The mode of agent handover for a bot conversation.",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Drop Off Rate",
+            "definition": "The count/percentage of conversations where the end-user left the conversation without reaching the logical end of the bot flow.",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Messages",
+            "definition": "Count of messages sent in an interaction",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "User Messages",
+            "definition": "The number of messages users send before a conversation is abandoned or resolved",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Bot Messages",
+            "definition": "The number of messages sent by the bot before a conversation is abandoned or resolved.",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "External Ticket ID",
+            "definition": "A custom parameter that can be set to capture a particular variable during the course of a bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Language",
+            "definition": "The language to understand the performance of multilingual bots",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Last Traversed Dialog",
+            "definition": "The dialog id of the  last dialog that the user saw on a bot conversation",
+            "tags": ["Filter", "Group By"]
+          }
+        ]
+      },
+      {
+        "name": "Bot Feedback",
+        "items": [
+          {
+            "term": "Survey Rating Results",
+            "definition": "Rating provided by users on a Star rating scale",
+            "tags": ["Metric", "Filter", "Group By"]
+          },
+          {
+            "term": "Message ID",
+            "definition": "Unique message ID where the feedback was provided by the user",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Feedback Type",
+            "definition": "Opinion poll/star rating ",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Survey Yes/No Results",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Customer",
+            "definition": "A unique identifier for the user that interacts with the bot",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Conversation Hash",
+            "definition": "A unique alphanumeric identifier for any conversation with the bot",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Question",
+            "definition": "The question on which the feedback  was provided by the user",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Milestone",
+            "definition": "A unique identifier for individual node (can be setup by clicking on the flag icon beside any dialog on the bot builder)",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "No. of Rating Results",
+            "definition": "Count of star ratings provided across bot conversations",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "No. of Yes/No Results",
+            "definition": "Count of yes/no ratings provided by users across bot conversations",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Bot",
+            "definition": "Name of the bot on which conversations were initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot Version",
+            "definition": "The version number of the bot on which the conversation was initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Flow",
+            "definition": "The flow on which a particular message was sent in the bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "Unique ID corresponding to a conversation with a bot",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "External Ticket ID",
+            "definition": "A custom parameter that can be set to capture a particular variable during the course of a bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "English Translated Answer",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Bot Messages",
+        "items": [
+          {
+            "term": "Customer",
+            "definition": "A unique ID corresponding to every user who has a bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "Unique ID for a bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Message Input Type",
+            "definition": "Timestamp when the message was sent",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Author",
+            "definition": "Identifier for the sender of the message on the conversation - Bot, Customer, System",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Channel",
+            "definition": "Channel on which a conversation was triggered, one session can have conversations spanning across multiple channels ",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Message ID",
+            "definition": "Unique message id where the feedback was provided by the user",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversation Hash",
+            "definition": "A unique alphanumeric identifier for any conversation with the bot",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Message Type",
+            "definition": "The type of the message (carousel, drop down, calendar, image, attachments, private note, mention, etc.)",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Message Text",
+            "definition": "The content of the message that was sent during the bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot",
+            "definition": "Name of the bot on which conversations/messages  were initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Flow",
+            "definition": "The flow on which a particular message was sent in the bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot version",
+            "definition": "The version of the bot on which the conversation/message was initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Milestone",
+            "definition": "A unique identifier for individual node (can be setup by clicking on the flag icon beside any dialog on the bot builder)",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Status",
+            "definition": "The current status of the bot conversation - Open, Closed",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Conversations",
+            "definition": "A new or reopened (after resolution) conversation thread in a channel",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Response Time - Miliseconds",
+            "definition": "The time taken by the agent to send a response after the last message from the user",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Dialog ID",
+            "definition": "The unique dialog id corresponding to the message on the bot conversation (dialog id is shown beside each node configured on the bot builder )",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "User Input Source Dialog",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Bot Dialog Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Feedback Type",
+            "definition": "The type of feedback response shown to the customer - star rating , opinion poll, comment",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Feedback - Star Rating",
+            "definition": "Star rating value of the Feedback provided by the user ",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Feedback - Opinion Poll",
+            "definition": "Opinion poll feedback provided by the user - Yes/No",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot Name Legacy",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Label",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Transfer Label",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Group Assignment Label",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Last Traversed Dialog",
+            "definition": "The dialog ID of the  last dialog that the user saw on a bot conversation",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Landing URL",
+            "definition": "The URL on which the bot conversation was initiated",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "External Ticket ID",
+            "definition": "A custom parameter that can be set to capture a particular variable during the course of a bot conversation",
+            "tags": ["Filter", "Group By"]
+          }
+        ]
+      },
+      {
+        "name": "Sessions",
+        "items": [
+          {
+            "term": "Conversation ID",
+            "definition": "TBD",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Bot",
+            "definition": "TBD",
+            "tags": ["Metric","Filter", "Group By"]
+          },
+          {
+            "term": "Bot Version",
+            "definition": "TBD",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Channel",
+            "definition": "TBD",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Customer",
+            "definition": "TBD",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Session ID",
+            "definition": "TBD",
+            "tags": ["Filter", "Group By"]
+          },
+          {
+            "term": "Session Count",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "External Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      },
+      {
+        "name": "Bot Answers",
+        "items": [
+          {
+            "term": "Question ID",
+            "definition": "Unique ID corresponding to each Q&A on the bot",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Question",
+            "definition": "Title of the articles/Q&A configured on that bot",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Conversation ID",
+            "definition": "Unique ID for a bot conversation",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Response Language",
+            "definition": "The language in which the bot provided a response to the customer",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "User Query ID",
+            "definition": "Unique ID associated with each user message",
+            "tags": ["Filter", "Tabular"]
+          },
+          {
+            "term": "User Query Text",
+            "definition": "The content of the message sent by the user",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Unique Response ID",
+            "definition": "Unique ID associated with every response provided by the bot",
+            "tags": ["Tabular"]
+          },
+          {
+            "term": "Bot",
+            "definition": "Name of the bot on which conversations were initiated",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Bot Version",
+            "definition": "The version of the bot on which the conversation were initiated",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Flow Triggered",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversations",
+            "definition": "Count of conversations where the “Answers” module was triggered",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "User Queries",
+            "definition": "Count of questions asked by the users",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Feedback",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Answered Via Smalltalk or QnA",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "QnA Responses",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "NLP Module Type",
+            "definition": "The type of NLP feature being used - QA or Intents",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Response Type",
+            "definition": "The type of response provided by the bot on a user message - Single recommendation, Multiple recommendations, Small talk or Unanswered",
+            "tags": ["Filter", "Group By", "Tabular"]
+          },
+          {
+            "term": "Feedback Provided on QnA Response",
+            "definition": "Count of feedback provided by the users when the bot responded with a Q&A recommendation",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Positive Feedbacks on QnA Response",
+            "definition": "Count of positive feedback provided by the users when the bot responded with a Q&A recommendation",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Negative Feedbacks on QnA Response",
+            "definition": "Count of negative feedback provided by the users when the bot responded with a Q&A recommendation",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "No Feedback on QnA Response",
+            "definition": "Count of Q&A recommendation where the users didn’t provide feedback",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Unanswered on QnA",
+            "definition": "Count of user queries where the fallback action was triggered and the bot could not come up with a response",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Landing URL",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Natural Language Response",
+            "definition": "Count of all the responses provided by the bot",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Answered Via Intents",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Unanswered on Intents",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Unanswered",
+            "definition": "Count of user queries where the fallback action was triggered and the bot could not come up with a response",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Conversation Resolved by Bot",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Assigned to Group",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Conversation Assigned to Agent",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Source",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "External Ticket ID",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Handover Type",
+            "definition": "The count/percentage of conversations handed over to the agent by the bot",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolution Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Agent Handover Rate",
+            "definition": "TBD",
+            "tags": ["Metric"]
+          },
+          {
+            "term": "Resolution Rate",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Bot Type",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Open Conversations",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Last Traversed Dialog",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolved Due to Inactivity",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Resolved During Conversation",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Customer Hash",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "English Translated Answer",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          },
+          {
+            "term": "Utterance Initiated At",
+            "definition": "TBD",
+            "tags": ["Attribute"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Freshchat: Custom Metrics (Chat)",
     "categories": [
       {
         "name": "Chat Conversations",
