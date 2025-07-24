@@ -328,8 +328,8 @@
           {
             "term": "Landing URL",
             "definition": ["The URL on which the bot conversation was initiated.",
-          "In 'Group By', 'freshchat-cache' refers to locally stored data (messages, user info, etc.) in the browser or app used to improve performance and ensure continuity when network connectivity is unstable. This cache allows users to view previous conversations even when offline or during app reloads. In some cases, cached sessions might reflect older data if not cleared or refreshed.",
-        "When the landing URL appears blank, it’s often due to conversations initiated via the Freshchat Mobile SDK, where a traditional browser-based landing URL may not be available or captured. This can also occur in scenarios where the chat is triggered from embedded in-app components rather than a full webview."],
+          "- In 'Group By', 'freshchat-cache' refers to locally stored data (messages, user info, etc.) in the browser or app used to improve performance and ensure continuity when network connectivity is unstable. This cache allows users to view previous conversations even when offline or during app reloads. In some cases, cached sessions might reflect older data if not cleared or refreshed.",
+        "- When the landing URL appears blank, it’s often due to conversations initiated via the Freshchat Mobile SDK, where a traditional browser-based landing URL may not be available or captured. This can also occur in scenarios where the chat is triggered from embedded in-app components rather than a full webview."],
             "tags": ["Metric", "Group By"]
           },
           {
