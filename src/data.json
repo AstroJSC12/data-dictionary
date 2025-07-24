@@ -327,8 +327,10 @@
           },
           {
             "term": "Landing URL",
-            "definition": "The URL on which the bot conversation was initiated.",
-            "tags": ["Metric"]
+            "definition": ["The URL on which the bot conversation was initiated.",
+          "In 'Group By', 'freshchat-cache' refers to locally stored data (messages, user info, etc.) in the browser or app used to improve performance and ensure continuity when network connectivity is unstable. This cache allows users to view previous conversations even when offline or during app reloads. In some cases, cached sessions might reflect older data if not cleared or refreshed.",
+        "When the landing URL appears blank, it’s often due to conversations initiated via the Freshchat Mobile SDK, where a traditional browser-based landing URL may not be available or captured. This can also occur in scenarios where the chat is triggered from embedded in-app components rather than a full webview."],
+            "tags": ["Metric", "Group By"]
           },
           {
             "term": "Conversation ID",
@@ -1351,7 +1353,8 @@
           },
           {
             "term": "Landing URL",
-            "definition": "The URL on which the bot conversation was initiated",
+            "definition": ["The URL on which the bot conversation was initiated",
+            "When the landing URL appears blank, it’s often due to conversations initiated via the Freshchat Mobile SDK, where a traditional browser-based landing URL may not be available or captured. This can also occur in scenarios where the chat is triggered from embedded in-app components rather than a full webview."],
             "tags": ["Filter", "Group By"]
           },
           {
@@ -1661,7 +1664,8 @@
           },
           {
             "term": "Landing URL",
-            "definition": "The URL on which the bot conversation was initiated",
+            "definition": ["The URL on which the bot conversation was initiated",
+            "When the landing URL appears blank, it’s often due to conversations initiated via the Freshchat Mobile SDK, where a traditional browser-based landing URL may not be available or captured. This can also occur in scenarios where the chat is triggered from embedded in-app components rather than a full webview."],
             "tags": ["Filter", "Group By"]
           },
           {
@@ -1831,7 +1835,8 @@
           },
           {
             "term": "Landing URL",
-            "definition": "TBD",
+            "definition": ["TBD",
+            "When the landing URL appears blank, it’s often due to conversations initiated via the Freshchat Mobile SDK, where a traditional browser-based landing URL may not be available or captured. This can also occur in scenarios where the chat is triggered from embedded in-app components rather than a full webview."],
             "tags": ["Attribute"]
           },
           {
@@ -4631,8 +4636,9 @@
           },
           {
             "term": "CORRELATION",
-            "definition": ["Statistical correlation between two fields",
-          "Example: See how strongly advertising spend correlates with sales"],
+            "definition": ["Statistical correlation between two fields. It returns the pearson correlation coefficient between the two variables. It measures how strongly the number columns are related. It indicates both direction and strength of the linear relationship.",
+          "Example: See how strongly advertising spend correlates with sales",
+          "Example: CORRELATION ( TICKET REPLY  COUNT, AGENT REPLY COUNT)"],
             "tags": ["Number Function"]
           },
           {

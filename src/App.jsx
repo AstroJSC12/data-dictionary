@@ -85,16 +85,24 @@ export default function App() {
 
   // ▶ Filtered items for search
   // filteredItems: All items matching the search term (term or definition)
-  const filteredItems = trimmedTerm
-    ? allItems.filter(i =>
-        i.term.toLowerCase().includes(trimmedTerm) ||
-        (typeof i.definition === 'string'
-          ? i.definition.toLowerCase().includes(trimmedTerm)
-          : Array.isArray(i.definition)
-            ? i.definition.some(line => line.toLowerCase().includes(trimmedTerm))
-            : false)
-      )
-    : [];
+  const filteredItems = (() => {
+  if (!trimmedTerm) return [];
+  if (trimmedTerm.startsWith('def:')) {
+    const defTerm = trimmedTerm.slice(4).trim();
+    return allItems.filter(i =>
+      i.term.toLowerCase().includes(defTerm) ||
+      (typeof i.definition === 'string'
+        ? i.definition.toLowerCase().includes(defTerm)
+        : Array.isArray(i.definition)
+          ? i.definition.some(line => line.toLowerCase().includes(defTerm))
+          : false)
+    );
+  } else {
+    return allItems.filter(i =>
+      i.term.toLowerCase().includes(trimmedTerm)
+    );
+  }
+})();
 
   // ▶ Unique groups & categories
   // groups: Array of group names to display (filtered if searching)
@@ -499,7 +507,7 @@ const onAsideKeyDown = e => {
             )}
           </>
         ) : (
-          <><p>Select a term to see its definition.</p><p>Press 'Esc' or '/' to enter search field.</p><p>Use arrow keys to navigate (← or → to fold/unfold).</p></>
+          <><p>Select a term to see its definition.</p><p>Press 'Esc' or '/' to enter search field.</p><p>Use arrow keys to navigate (← or → to fold/unfold groups).</p><p>Add "def:" before search term to include definition in search</p></>
         )}
       </main>
     </div>
